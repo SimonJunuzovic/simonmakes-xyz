@@ -1902,9 +1902,9 @@
             <div class="project-detail-images">
                 <img id="detail-main-image" class="detail-main-image" src="" alt="Project image">
                 <div class="detail-thumbnails">
-                    <img src="" alt="Thumbnail 1">
-                    <img src="" alt="Thumbnail 2">
-                    <img src="" alt="Thumbnail 3">
+                    <img id="detail-thumb-1" src="" alt="Thumbnail 1">
+                    <img id="detail-thumb-2" src="" alt="Thumbnail 2">
+                    <img id="detail-thumb-3" src="" alt="Thumbnail 3">
                 </div>
             </div>
             <div class="project-detail-content">
@@ -2042,6 +2042,7 @@
                     problem: 'No system for user communication. Important updates got buried, new features went unnoticed, and nobody knew what deserved a banner versus a toast versus an email.',
                     role: 'Senior Product Designer owning engagement. Designed the notification system. Reviewed and refined banners, pop-ups, and toast messages. Built a touchpoint decision matrix so PMs stopped guessing. Wrote the tone of voice guide.',
                     outcomes: ['New feature adoption jumped from under 10% to above 60%.', 'Decision matrix eliminated channel debates. We shipped faster.', 'Tone guide adopted company-wide and served as example for other products.'],
+                    images: ['images/Project1-1.png', 'images/Project1-2.png', 'images/Project1-3.png'],
                     link: ''
                 },
                 'project-4': {
@@ -2051,6 +2052,7 @@
                     problem: 'No design foundation. No journey from discovery to membership, and there was no cohesive experience tying the website, minting flow, and community app together.',
                     role: 'Head of Product Design. Owned the full member journey from first touch to active member. Built two design systems (web and app) sharing the same tokens. Designed the social app for desktop and mobile. Managed a junior designer and agency partners.',
                     outcomes: ['$4M in NFT sales', '$100K in merch sold', 'Two design systems still powering the product'],
+                    images: ['images/Project2-1.png', 'images/Project2-2.png', 'images/Project2-3.png'],
                     link: ''
                 },
                 'project-5': {
@@ -2060,6 +2062,7 @@
                     problem: 'The product had strong tech but weak market fit. Features didn\'t match how creatives actually worked, and the UI made adoption hard.',
                     role: 'Product Manager and Lead UX Designer. Ran user interviews and shadowed creatives in agencies. Defined user flows and product roadmap. Managed a team of 6 developers. Made sure every new feature and algorithm solved a real problem.',
                     outcomes: ['Full product revamp (UI and UX)', 'New features unlocked a new target audience', 'Acquired by Shutterstock'],
+                    images: ['images/Project3-1.png', 'images/Project3-2.png', 'images/Project3-3.png'],
                     link: ''
                 },
                 'project-6': {
@@ -2069,6 +2072,7 @@
                     problem: 'New product built by an external agency. No existing relationship between them and internal teams. High risk of launching an app that felt like a standalone island instead of part of the private banking experience.',
                     role: 'Connected the dots. Managed the agency relationship. Ensured Voice of Wealth felt like part of the same ecosystem as other client touchpoints. Reviewed user flows and UI for consistency. Made sure interaction patterns and design system components carried over.',
                     outcomes: ['Standalone app reused 50% of design system components', 'Core user behaviors consistent across products', 'Launched to 10000 private clients'],
+                    images: ['images/Project4-1.png', 'images/Project4-2.png', 'images/Project4-3.png'],
                     link: ''
                 },
                 'project-7': {
@@ -2078,6 +2082,7 @@
                     problem: 'Clients wanted more guidance in investment services. No clear way to match personal values with investment options.',
                     role: 'Planned and facilitated a Design Sprint to explore new ways to find investments. Managed a junior designer delivering user flows and final UI screens. Shipped an MVP within two sprints to test with a first market and iterate lean.',
                     outcomes: ['Design Sprint to MVP in two sprints', 'Concept validated with real users', 'Lean approach adopted for future iterations'],
+                    images: ['images/Project5-1.png', 'images/Project5-2.png', 'images/Project5-3.png'],
                     link: ''
                 },
                 'project-8': {
@@ -2087,6 +2092,57 @@
                     problem: 'Only a web platform existed. Each market had different needs but no shared design foundation. No mobile app to meet client expectations.',
                     role: 'Helped launch the mobile app. Integrated features co-created with clients in each market. Built a Design System shared across all 5 markets. Grew into Head of Design, managing 12 designers across 6 feature teams.',
                     outcomes: ['One of the first apps with light/dark mode (2016, before it was standard)', 'Dozen of UX awards for features co-created with clients', 'Design System adopted across all markets'],
+                    images: ['images/Project6-1.png', 'images/Project6-2.png', 'images/Project6-3.png'],
+                    link: ''
+                },
+                'project-2': {
+                    company: '',
+                    title: 'Cross-Team Design System',
+                    product: '',
+                    problem: '',
+                    role: '',
+                    outcomes: [],
+                    images: ['images/Collab1-1.png', 'images/Collab1-2.png', 'images/Collab1-3.png'],
+                    link: ''
+                },
+                'project-9': {
+                    company: '',
+                    title: 'Component Library Build',
+                    product: '',
+                    problem: '',
+                    role: '',
+                    outcomes: [],
+                    images: ['images/Collab2-1.png', 'images/Collab2-2.png', 'images/Collab2-3.png'],
+                    link: ''
+                },
+                'project-10': {
+                    company: '',
+                    title: 'Technical Documentation',
+                    product: '',
+                    problem: '',
+                    role: '',
+                    outcomes: [],
+                    images: ['images/Collab3-1.png', 'images/Collab3-2.png', 'images/Collab3-3.png'],
+                    link: ''
+                },
+                'project-3': {
+                    company: '',
+                    title: 'Startup Brand Identity',
+                    product: '',
+                    problem: '',
+                    role: '',
+                    outcomes: [],
+                    images: ['images/Brand1-1.png', 'images/Brand1-2.png', 'images/Brand1-3.png'],
+                    link: ''
+                },
+                'project-11': {
+                    company: '',
+                    title: 'Rebrand Strategy',
+                    product: '',
+                    problem: '',
+                    role: '',
+                    outcomes: [],
+                    images: ['images/Brand2-1.png', 'images/Brand2-2.png', 'images/Brand2-3.png'],
                     link: ''
                 }
                 // Add more project data here
@@ -2104,6 +2160,14 @@
             
             const outcomesList = document.getElementById('detail-outcomes');
             outcomesList.innerHTML = data.outcomes.map(o => `<li>${o}</li>`).join('');
+            
+            // Set images
+            if (data.images && data.images.length >= 3) {
+                document.getElementById('detail-main-image').src = data.images[0];
+                document.getElementById('detail-thumb-1').src = data.images[0];
+                document.getElementById('detail-thumb-2').src = data.images[1];
+                document.getElementById('detail-thumb-3').src = data.images[2];
+            }
             
             if (data.link) {
                 document.getElementById('detail-link').href = data.link;
