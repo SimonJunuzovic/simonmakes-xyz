@@ -1318,19 +1318,14 @@
         }
 
         .back-button {
-            background: #0A0A0A;
+            background: transparent;
             border: none;
             color: #FFFFFF;
             font-size: 1rem;
             cursor: pointer;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             padding: 0.5rem 0;
             font-family: 'Space Grotesk', sans-serif;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
         }
 
         .back-button:hover {
@@ -1364,39 +1359,107 @@
             gap: 4rem;
         }
 
-        .project-detail-images {
+        .project-detail-left {
             position: sticky;
             top: 2rem;
             height: fit-content;
         }
 
+        .project-detail-images {
+            margin-top: 1rem;
+        }
+
         .detail-main-image {
             width: 100%;
+            max-height: 300px;
+            object-fit: cover;
             border-radius: 12px;
             margin-bottom: 1rem;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .detail-main-image:hover {
+            opacity: 0.9;
         }
 
         .detail-thumbnails {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+            gap: 0.75rem;
         }
 
         .detail-thumbnails img {
             width: 100%;
+            height: 60px;
+            object-fit: cover;
             border-radius: 8px;
             cursor: pointer;
             opacity: 0.6;
             transition: opacity 0.3s;
         }
 
-        .detail-thumbnails img:hover {
+        .detail-thumbnails img:hover,
+        .detail-thumbnails img.active {
             opacity: 1;
         }
 
         .project-detail-content {
             padding: 2rem 0;
         }
+
+        /* Lightbox */
+        .image-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+
+        .image-lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: #FFFFFF;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 1rem;
+            border-radius: 50%;
+        }
+
+        .lightbox-prev { left: 2rem; }
+        .lightbox-next { right: 2rem; }
 
         .detail-company {
             font-size: 1.125rem;
@@ -1577,6 +1640,50 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
+
+            /* Mobile Project Detail */
+            .project-detail-view {
+                padding: 1rem;
+            }
+
+            .project-detail-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .project-detail-left {
+                position: relative;
+                top: 0;
+            }
+
+            .detail-main-image {
+                max-height: 250px;
+                width: 100%;
+            }
+
+            .detail-thumbnails {
+                gap: 0.5rem;
+            }
+
+            .detail-thumbnails img {
+                height: 70px;
+            }
+
+            .project-detail-content {
+                padding: 0;
+            }
+
+            .detail-title {
+                font-size: 1.5rem;
+            }
+
+            .lightbox-nav {
+                padding: 0.5rem;
+                font-size: 1.5rem;
+            }
+
+            .lightbox-prev { left: 0.5rem; }
+            .lightbox-next { right: 0.5rem; }
         }
     </style>
 </head>
@@ -1897,14 +2004,16 @@
 
     <!-- Project Detail View -->
     <div id="project-detail" class="project-detail-view" style="display: none;">
-        <button class="back-button" onclick="closeProject()"><span class="back-arrow">←</span> <span class="back-white">Back to</span> <span class="back-gray">Previous sets</span></button>
         <div class="project-detail-container">
-            <div class="project-detail-images">
-                <img id="detail-main-image" class="detail-main-image" src="" alt="Project image">
-                <div class="detail-thumbnails">
-                    <img id="detail-thumb-1" src="" alt="Thumbnail 1">
-                    <img id="detail-thumb-2" src="" alt="Thumbnail 2">
-                    <img id="detail-thumb-3" src="" alt="Thumbnail 3">
+            <div class="project-detail-left">
+                <button class="back-button" onclick="closeProject()"><span class="back-arrow">←</span> <span class="back-white">Back to</span> <span class="back-gray">Previous sets</span></button>
+                <div class="project-detail-images">
+                    <img id="detail-main-image" class="detail-main-image" src="" alt="Project image" onclick="openLightbox(0)">
+                    <div class="detail-thumbnails">
+                        <img id="detail-thumb-1" src="" alt="Thumbnail 1" onclick="setMainImage(0)">
+                        <img id="detail-thumb-2" src="" alt="Thumbnail 2" onclick="setMainImage(1)">
+                        <img id="detail-thumb-3" src="" alt="Thumbnail 3" onclick="setMainImage(2)">
+                    </div>
                 </div>
             </div>
             <div class="project-detail-content">
@@ -1929,6 +2038,14 @@
                 <a id="detail-link" href="#" target="_blank" class="detail-link-btn">View project</a>
             </div>
         </div>
+    </div>
+
+    <!-- Image Lightbox -->
+    <div id="image-lightbox" class="image-lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">×</button>
+        <button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation(); navigateLightbox(-1)">‹</button>
+        <img id="lightbox-image" class="lightbox-image" src="" alt="Full size image" onclick="event.stopPropagation()">
+        <button class="lightbox-nav lightbox-next" onclick="event.stopPropagation(); navigateLightbox(1)">›</button>
     </div>
 
     <!-- Say Hello Section -->
@@ -2163,10 +2280,12 @@
             
             // Set images
             if (data.images && data.images.length >= 3) {
+                currentProjectImages = data.images;
                 document.getElementById('detail-main-image').src = data.images[0];
                 document.getElementById('detail-thumb-1').src = data.images[0];
                 document.getElementById('detail-thumb-2').src = data.images[1];
                 document.getElementById('detail-thumb-3').src = data.images[2];
+                updateActiveThumbnail(0);
             }
             
             if (data.link) {
@@ -2185,6 +2304,48 @@
             document.body.style.overflow = 'auto';
             document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
         }
+
+        // Lightbox and thumbnail functions
+        let currentProjectImages = [];
+        let currentLightboxIndex = 0;
+
+        function setMainImage(index) {
+            if (currentProjectImages[index]) {
+                document.getElementById('detail-main-image').src = currentProjectImages[index];
+                updateActiveThumbnail(index);
+            }
+        }
+
+        function updateActiveThumbnail(activeIndex) {
+            document.querySelectorAll('.detail-thumbnails img').forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === activeIndex);
+            });
+        }
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            document.getElementById('lightbox-image').src = currentProjectImages[index];
+            document.getElementById('image-lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('image-lightbox').classList.remove('active');
+        }
+
+        function navigateLightbox(direction) {
+            currentLightboxIndex += direction;
+            if (currentLightboxIndex < 0) currentLightboxIndex = currentProjectImages.length - 1;
+            if (currentLightboxIndex >= currentProjectImages.length) currentLightboxIndex = 0;
+            document.getElementById('lightbox-image').src = currentProjectImages[currentLightboxIndex];
+        }
+
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', function(e) {
+            if (!document.getElementById('image-lightbox').classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
 
         // Mobile only: Auto-flip cards when they enter center of viewport on scroll
         (function() {
