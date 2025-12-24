@@ -1882,11 +1882,11 @@
                     <div class="project-info">
                         <div class="project-meta">
                             <span class="project-category">COLLABORATION</span>
-                            <span class="project-date">NOV 4, 2025</span>
+                            <span class="project-date">2021–2025</span>
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title">Cross-Team Design System</h3>
-                            <p class="project-description">Building scalable design foundations with engineering</p>
+                            <h3 class="project-title">Scaled one design system across multiple products</h3>
+                            <p class="project-description">Built and maintained one design system used across different products. Crypto wallets, mobile and desktop apps, admin panels. All sharing the same foundation.</p>
                         </div>
                     </div>
                 </div>
@@ -1897,11 +1897,11 @@
                     <div class="project-info">
                         <div class="project-meta">
                             <span class="project-category">BRANDING</span>
-                            <span class="project-date">OCT 28, 2025</span>
+                            <span class="project-date">2021–2024</span>
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title">Startup Brand Identity</h3>
-                            <p class="project-description">Strategy and visual identity from scratch</p>
+                            <h3 class="project-title">Evolved the brand three times in three years without losing trust</h3>
+                            <p class="project-description">Led three brand evolutions in a fast-moving market. Evolved the visuals and voice without ever breaking the brand's core feel. Always moved at crypto speed.</p>
                         </div>
                     </div>
                 </div>
@@ -1965,10 +1965,10 @@
                 <div class="project-item hidden" data-category="collaboration" data-id="project-9" onclick="openProject('project-9')">
                     <div class="project-visual" style="background-image: url('images/Collab2-Main.png'); background-size: cover; background-position: center;"></div>
                     <div class="project-info">
-                        <div class="project-meta"><span class="project-category">COLLABORATION</span><span class="project-date">SEP 20, 2025</span></div>
+                        <div class="project-meta"><span class="project-category">COLLABORATION</span><span class="project-date">2019–2025</span></div>
                         <div class="project-content">
-                            <h3 class="project-title">Component Library Build</h3>
-                            <p class="project-description">Partnering with frontend to ship faster</p>
+                            <h3 class="project-title">Created Figma file structures that adapt to any team size and speed</h3>
+                            <p class="project-description">Designed different Figma architectures based on team size and delivery speed. From one file per feature to one file per stage.</p>
                         </div>
                     </div>
                 </div>
@@ -1976,10 +1976,10 @@
                 <div class="project-item hidden" data-category="collaboration" data-id="project-10" onclick="openProject('project-10')">
                     <div class="project-visual" style="background-image: url('images/Collab3-Main.png'); background-size: cover; background-position: center;"></div>
                     <div class="project-info">
-                        <div class="project-meta"><span class="project-category">COLLABORATION</span><span class="project-date">SEP 15, 2025</span></div>
+                        <div class="project-meta"><span class="project-category">COLLABORATION</span><span class="project-date">2024</span></div>
                         <div class="project-content">
-                            <h3 class="project-title">Technical Documentation</h3>
-                            <p class="project-description">Design specs that engineers love</p>
+                            <h3 class="project-title">Used design sprints to push innovation beyond the roadmap</h3>
+                            <p class="project-description">Ran design sprints quarterly or yearly depending on the team. Pushed the product beyond the roadmap and explored what's next.</p>
                         </div>
                     </div>
                 </div>
@@ -1987,10 +1987,10 @@
                 <div class="project-item hidden" data-category="branding" data-id="project-11" onclick="openProject('project-11')">
                     <div class="project-visual" style="background-image: url('images/Brand2-Main.png'); background-size: cover; background-position: center;"></div>
                     <div class="project-info">
-                        <div class="project-meta"><span class="project-category">BRANDING</span><span class="project-date">SEP 10, 2025</span></div>
+                        <div class="project-meta"><span class="project-category">BRANDING</span><span class="project-date">2023</span></div>
                         <div class="project-content">
-                            <h3 class="project-title">Rebrand Strategy</h3>
-                            <p class="project-description">Positioning and visual identity refresh</p>
+                            <h3 class="project-title">Built a hackathon brand that grew into a real product</h3>
+                            <p class="project-description">Built a full brand identity during a weekend hackathon. Most teams skipped branding, I started with it. The product is now used by thousands.</p>
                         </div>
                     </div>
                 </div>
@@ -2019,16 +2019,16 @@
             <div class="project-detail-content">
                 <h3 id="detail-company" class="detail-company"></h3>
                 <h2 id="detail-title" class="detail-title"></h2>
-                <div class="detail-section">
-                    <h4>The product</h4>
+                <div class="detail-section" id="section-product">
+                    <h4 id="label-product">The product</h4>
                     <p id="detail-product"></p>
                 </div>
-                <div class="detail-section">
+                <div class="detail-section" id="section-problem">
                     <h4>The problem(s) to solve</h4>
                     <p id="detail-problem"></p>
                 </div>
-                <div class="detail-section">
-                    <h4>My role</h4>
+                <div class="detail-section" id="section-role">
+                    <h4 id="label-role">My role</h4>
                     <p id="detail-role"></p>
                 </div>
                 <div class="detail-section">
@@ -2214,58 +2214,76 @@
                 },
                 'project-2': {
                     company: '',
-                    title: 'Cross-Team Design System',
-                    product: '',
+                    title: 'Scaled one design system across multiple products',
+                    product: 'Two different crypto wallets sharing the same base design system. A product with mobile and desktop versions built from shared components. An admin panel reusing the same foundation. Efficiency through consistency.',
                     problem: '',
-                    role: '',
-                    outcomes: [],
+                    role: 'Built and maintained design systems that could flex across products without breaking. Defined tokens, components, and patterns that worked whether it was a mobile wallet, desktop app, or admin tool.',
+                    outcomes: ['Two crypto wallets sharing one design system', 'Mobile, desktop, and admin panel built from shared components', 'Faster design and dev cycles across all products'],
                     images: ['images/Collab1-1.png', 'images/Collab1-2.png', 'images/Collab1-3.png'],
-                    link: ''
+                    link: '',
+                    isCollab: true
                 },
                 'project-9': {
                     company: '',
-                    title: 'Component Library Build',
-                    product: '',
+                    title: 'Created Figma file structures that adapt to any team size and speed',
+                    product: 'Three different Figma architectures tested across companies. Option 1: one file per feature, pages per stage (Ideation → Ready for Dev → Live)—best for agile, high-delivery small teams (used at ARC). Option 2: one file per feature, pages per flow, ideation grouped separately—best for teams iterating on many things at once (used at Datasine AI). Option 3: one file per stage, pages per feature—best for teams with slower delivery cycles (used at Emurgo).',
                     problem: '',
-                    role: '',
-                    outcomes: [],
+                    role: 'Designed and documented file structures tailored to each team\'s delivery speed and size. Trained designers and developers on the system. Iterated based on what actually worked in practice.',
+                    outcomes: ['Three proven Figma structures for different team types', 'Smoother handover and fewer "where is this?" questions', 'Adopted across ARC, Datasine AI, and Emurgo'],
                     images: ['images/Collab2-1.png', 'images/Collab2-2.png', 'images/Collab2-3.png'],
-                    link: ''
+                    link: '',
+                    isCollab: true
                 },
                 'project-10': {
                     company: '',
-                    title: 'Technical Documentation',
-                    product: '',
+                    title: 'Used design sprints to push innovation beyond the roadmap',
+                    product: 'End of 2024 Design Sprint starting with research on the crypto landscape (which evolved drastically in 2024/2025). Shared findings at the start of the sprint with a cross-functional team I assembled. Iterated together and came up with two product ideas that weren\'t on the roadmap—then presented them to stakeholders.',
                     problem: '',
-                    role: '',
-                    outcomes: [],
+                    role: 'Planned and facilitated the sprint. Ran the initial research phase. Pulled together the right people from across the company. Guided ideation and helped shape the final concepts for stakeholder presentation.',
+                    outcomes: ['Two new product ideas outside the roadmap', 'Cross-functional team aligned on innovation priorities', 'Practice now runs yearly to keep real innovation alive'],
                     images: ['images/Collab3-1.png', 'images/Collab3-2.png', 'images/Collab3-3.png'],
-                    link: ''
+                    link: '',
+                    isCollab: true
                 },
                 'project-3': {
                     company: '',
-                    title: 'Startup Brand Identity',
-                    product: '',
+                    title: 'Evolved the brand three times in three years without losing trust',
+                    product: 'In a fast-evolving environment like crypto, branding and meta are key. We evolved the brand through time with intentional adjustments—melting metal aesthetics in 2021, reassuring light purples in 2022. Worked with an agency to create our own custom font. Designed visuals for Twitter. Working closely with marketing meant first-time users experienced the brand through social media and our website before ever touching the product.',
                     problem: '',
-                    role: '',
-                    outcomes: [],
+                    role: 'Led brand evolution across three years. Collaborated with an external agency on custom typography. Created social media assets and website visuals. Delivered fast—speed was always part of the brief. Bridged design and marketing to ensure end-to-end brand consistency.',
+                    outcomes: ['Three brand evolutions in three years', 'Custom font created with agency', 'Brand-first experience from social to product'],
                     images: ['images/Brand1-1.png', 'images/Brand1-2.png', 'images/Brand1-3.png'],
-                    link: ''
+                    link: '',
+                    isCollab: true
                 },
                 'project-11': {
                     company: '',
-                    title: 'Rebrand Strategy',
-                    product: '',
+                    title: 'Built a hackathon brand that grew into a real product',
+                    product: 'During hackathons, most teams skip branding—maybe a logo on slides if there\'s time. I worked differently. Spent time building base brand elements from the start to get as close to a real product as possible. The result felt polished, stood out, and eventually became a product used by thousands of people.',
                     problem: '',
-                    role: '',
-                    outcomes: [],
+                    role: 'Created the full brand identity during the weekend—logo, colors, typography, and visual language. Also structured the design system from scratch so the product could scale after the hackathon ended.',
+                    outcomes: ['Full brand identity built in a weekend', 'Design system structured from day one', 'Hackathon project now used by thousands'],
                     images: ['images/Brand2-1.png', 'images/Brand2-2.png', 'images/Brand2-3.png'],
-                    link: ''
+                    link: '',
+                    isCollab: true
                 }
                 // Add more project data here
             };
             
             const data = projectData[projectId] || projectData['project-1'];
+            
+            // Handle collaboration vs end-to-end layout
+            if (data.isCollab) {
+                document.getElementById('detail-company').style.display = 'none';
+                document.getElementById('label-product').textContent = 'What happened';
+                document.getElementById('section-problem').style.display = 'none';
+                document.getElementById('label-role').textContent = 'My role';
+            } else {
+                document.getElementById('detail-company').style.display = 'block';
+                document.getElementById('label-product').textContent = 'The product';
+                document.getElementById('section-problem').style.display = 'block';
+                document.getElementById('label-role').textContent = 'My role';
+            }
             
             // Format company with grey employee count
             const companyHtml = data.company.replace(/(\([^)]+\))/, '<span class="employee-count">$1</span>');
